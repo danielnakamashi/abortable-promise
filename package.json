@@ -1,0 +1,35 @@
+{
+  "name": "@dnakamashi/abortable-promise",
+  "version": "1.0.0",
+  "description": "Promises that can be abortable using AbortController",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "npm run build:clean && tsc -b ./configs/tsconfig.cjs.json ./configs/tsconfig.esm.json ./configs/tsconfig.types.json",
+    "build:clean": "rimraf ./dist",
+    "build": "npm-run-all build:clean compile && node ./scripts/prepare-package-json",
+    "prepack": "npm run build"
+  },
+  "keywords": [],
+  "author": "Daniel Nakamashi <dnakamashi@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "dist/**/*"
+  ],
+  "devDependencies": {
+    "@types/node": "^22.5.5",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.6.2"
+  }
+}
