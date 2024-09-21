@@ -6,7 +6,7 @@ import eslintConfigPrettier from 'eslint-config-prettier'
 const scriptFiles = ['scripts/*.js']
 
 export default tseslint.config(
-  { ignores: ['dist/*'] },
+  { ignores: ['dist/*', 'commitlint.config.js'] },
   { files: ['**/*.{js,mjs,cjs,ts}'] },
   { languageOptions: { globals: globals.browser } },
   { files: scriptFiles, languageOptions: { globals: globals.node } },
