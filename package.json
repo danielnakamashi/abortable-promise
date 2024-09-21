@@ -14,7 +14,7 @@
     }
   },
   "scripts": {
-    "test": "node --test --require ts-node/register tests/**/*.test.ts",
+    "test": "node --test --require ts-node/register tests/*.test.ts",
     "test:watch": "node --test --require ts-node/register --watch tests/**/*.test.ts",
     "compile": "npm run build:clean && tsc -b ./configs/tsconfig.cjs.json ./configs/tsconfig.esm.json ./configs/tsconfig.types.json",
     "build:clean": "rimraf ./dist",
