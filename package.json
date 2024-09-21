@@ -1,10 +1,10 @@
 {
   "name": "@dnakamashi/abortable-promise",
   "version": "1.0.0",
-  "description": "Promises that can be abortable using AbortController",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "description": "Promises that can be aborted using AbortController",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
@@ -14,22 +14,42 @@
     }
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --test --require ts-node/register tests/**/*.test.ts",
+    "test:watch": "node --test --require ts-node/register --watch tests/**/*.test.ts",
     "compile": "npm run build:clean && tsc -b ./configs/tsconfig.cjs.json ./configs/tsconfig.esm.json ./configs/tsconfig.types.json",
     "build:clean": "rimraf ./dist",
     "build": "npm-run-all build:clean compile && node ./scripts/prepare-package-json",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "prepare": "husky"
   },
-  "keywords": [],
+  "keywords": [
+    "promise",
+    "AbortController"
+  ],
   "author": "Daniel Nakamashi <dnakamashi@gmail.com>",
   "license": "MIT",
   "files": [
     "dist/**/*"
   ],
   "devDependencies": {
+    "@eslint/js": "^9.11.0",
+    "@types/eslint__js": "^8.42.3",
     "@types/node": "^22.5.5",
+    "eslint": "^9.11.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.9.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "npm-run-all": "^4.1.5",
+    "prettier": "3.3.3",
     "rimraf": "^6.0.1",
-    "typescript": "^5.6.2"
-  }
+    "ts-node": "^10.9.2",
+    "typescript": "5.5.4",
+    "typescript-eslint": "^8.6.0"
+  },
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=9"
+  },
+  "packageManager": "pnpm@9.11.0"
 }

@@ -1,2 +1,3 @@
 # abortable-promise
-Promises that can be abortable using AbortController
+
+Promises that can be aborted using AbortController
