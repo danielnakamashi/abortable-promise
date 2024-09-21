@@ -18,5 +18,4 @@ jobs:
       - name: 'Automated version bump'
         uses: 'phips28/gh-action-bump-version@master'
         with:
-          skip-commit: 'true'
           skip-tag: 'true'
