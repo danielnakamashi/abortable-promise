@@ -1,6 +1,6 @@
 {
   "name": "@dnakamashi/abortable-promise",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Promises that can be aborted using AbortController",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
