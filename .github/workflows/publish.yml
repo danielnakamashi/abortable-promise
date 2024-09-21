@@ -1,4 +1,4 @@
-name: 'Version bump'
+name: 'Publish'
 
 on:
   push:
@@ -19,3 +19,8 @@ jobs:
         uses: 'phips28/gh-action-bump-version@master'
         with:
           skip-tag: 'true'
+
+      - name: 'Create GitHub release'
+        uses: 'danielnakamashi/simple-github-release@v1'
+        with:
+          token: ${{secrets.ACTION_RW}}
