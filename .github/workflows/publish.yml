@@ -38,8 +38,10 @@ jobs:
           cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: 'Install dependencies'
+        run: pnpm install
+
       - name: 'Publish to npm'
-      - run: pnpm install
-      - run: pnpm publish --provenance --access public
+        run: pnpm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
