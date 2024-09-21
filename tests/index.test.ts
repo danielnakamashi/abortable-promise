@@ -18,8 +18,8 @@ describe('AbortController', () => {
     const mockResolve = t.mock.fn()
     const mockReject = t.mock.fn()
     const promise = new AbortablePromise((resolve, reject) => {
-      setTimeout(reject, 2)
-      setTimeout(resolve, 1)
+      setTimeout(reject, 20)
+      setTimeout(resolve, 10)
     })
 
     await promise.then(mockResolve, mockReject)
@@ -32,8 +32,8 @@ describe('AbortController', () => {
     const mockResolve = t.mock.fn()
     const mockReject = t.mock.fn()
     const promise = new AbortablePromise((resolve, reject) => {
-      setTimeout(resolve, 2)
-      setTimeout(reject, 1)
+      setTimeout(resolve, 20)
+      setTimeout(reject, 10)
     })
 
     await promise.then(mockResolve, mockReject)
@@ -48,15 +48,15 @@ describe('AbortController', () => {
     const abortController = new AbortController()
     const promise = new AbortablePromise(
       (resolve, reject) => {
-        setTimeout(resolve, 2)
-        setTimeout(reject, 3)
+        setTimeout(resolve, 20)
+        setTimeout(reject, 30)
       },
       { signal: abortController.signal },
     )
 
     setTimeout(() => {
       abortController.abort('abort reason')
-    }, 1)
+    }, 10)
 
     await promise.then(mockResolve, mockReject)
 
